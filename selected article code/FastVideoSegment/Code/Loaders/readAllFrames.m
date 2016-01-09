@@ -19,13 +19,24 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function frames = readAllFrames( options, range )
+function frames = readAllFrames( options, range , rangeIncrements)
+
+%%%%%
+if nargin ==2
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 3
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
 
     start = options.ranges( range );
     stop = options.ranges( range + 1 ) - 1;
 
-    frames = cell( stop - start + 1, 1 );
-    for( i = start: stop )
+    frames = cell( stop - start + 1, 1 ); 
+    for( i = start: rangeIncrements:    stop )%RAN
         index = i - start + 1;
         frames{ index } = readFrame( options, i );
     end

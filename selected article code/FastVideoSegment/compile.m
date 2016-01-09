@@ -25,6 +25,8 @@
 % NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 % SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+clc 
+
 % Compile Matlab wrappers for external code
 cd Code/External/maxflow/
 mex maxflow_mex_optimisedWrapper.cpp maxflow-v3.0/graph.cpp maxflow-v3.0/maxflow.cpp
@@ -32,8 +34,9 @@ mex maxflow_mex_optimisedWrapper.cpp maxflow-v3.0/graph.cpp maxflow-v3.0/maxflow
 cd ../SLIC/
 mex SLIC_mex.cpp SLIC.cpp
 
-cd ../sundaramECCV2010/
-mex sundaramECCV10_ldof_GPU_mex.cpp NMath.cpp -lldof_gpu
+%  RAN remarked
+% cd ../sundaramECCV2010/
+% mex sundaramECCV10_ldof_GPU_mex.cpp NMath.cpp -lldof_gpu
 
 % Build TurboPixels
 cd ../TurboPixels

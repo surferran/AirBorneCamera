@@ -19,8 +19,19 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function superpixels = computeSuperpixels( options, shot )
-    
+function superpixels = computeSuperpixels( options, shot ,rangeIncrements)
+        %%%%%
+if nargin ==2
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 3
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
+
+
     superpixelfolder = fullfile( options.outfolder, 'superpixels', ...
         options.superpixels );
     if( ~exist( superpixelfolder, 'dir' ) )
@@ -40,7 +51,7 @@ function superpixels = computeSuperpixels( options, shot )
         if( strcmp( options.superpixels, 'Turbopixels' ) )
             superpixels = computeTurbopixels( options, shot );
         elseif( strcmp( options.superpixels, 'SLIC' ) )
-            superpixels = computeSLIC( options, shot );
+            superpixels = computeSLIC( options, shot ,rangeIncrements  );
         else
             error( 'Unknown superpixel oversegmentation method' )
         end

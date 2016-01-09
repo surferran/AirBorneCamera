@@ -27,11 +27,11 @@ function output = getInOutMaps( flow )
     [ height, width, ~ ] = size( flow{ 1 } );
     
     % Motion boundaries touching the edges will be cut!
-    sideCut = false( height, width );
-    sideCut( 1: 20, : ) = true;
-    sideCut( end - 20: end, : ) = true;
-    sideCut( :, 1: 20 ) = true;
-    sideCut( :, end - 20: end ) = true;
+    sideCut                                     = false( height, width );
+    sideCut( 1: 20          , :             )	= true;
+    sideCut( end - 20: end  , :             )   = true;
+    sideCut( :              , 1: 20         ) 	= true;
+    sideCut( :              , end - 20: end )   = true;
     
     for( frame = 1: frames )
         boundaryMap = getProbabilityEdge( flow{ frame }, 3 );

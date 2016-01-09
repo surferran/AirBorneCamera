@@ -19,8 +19,18 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function flow = computeOpticalFlow( options, shot )
-    
+function flow = computeOpticalFlow( options, shot ,rangeIncrements)
+    %%%%%
+if nargin ==2
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 3
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
+
     flowfolder = fullfile( options.outfolder, 'flow', options.flowmethod );
     if( ~exist( flowfolder, 'dir' ) )
         mkdir( flowfolder );
@@ -35,7 +45,7 @@ function flow = computeOpticalFlow( options, shot )
         return;
     else
         if( strcmp( options.flowmethod, 'broxPAMI2011' ) )
-            flow = computeBroxPAMI2011Flow( options, shot );
+            flow = computeBroxPAMI2011Flow( options, shot , rangeIncrements );
         elseif( strcmp( options.flowmethod, 'sundaramECCV2010' ) )
             flow = computeSundaramECCV2010Flow( options, shot );
         else

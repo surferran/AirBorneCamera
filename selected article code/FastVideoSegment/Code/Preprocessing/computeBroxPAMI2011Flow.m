@@ -19,13 +19,24 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function flow = computeBroxPAMI2011Flow( options, shot )
-    
+function flow = computeBroxPAMI2011Flow( options, shot,rangeIncrements )
+    %%%%%
+if nargin ==2
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 3
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
+
     startFrame = options.ranges( shot );
     endFrame = options.ranges( shot + 1 ) - 1;
     flowframes = endFrame - startFrame;
     
     flow = cell( 1, flowframes );
+%     flow = cell( 1, ceil(flowframes /rangeIncrements));%RAN
 
     totalTimeTaken = 0;
 
@@ -35,7 +46,7 @@ function flow = computeBroxPAMI2011Flow( options, shot )
     end
     currImage = double( currImage );
     
-    for( i = startFrame + 1: endFrame )
+    for( i = startFrame +1 : rangeIncrements: endFrame ) %RAN
         tic
         
         index = i - startFrame;

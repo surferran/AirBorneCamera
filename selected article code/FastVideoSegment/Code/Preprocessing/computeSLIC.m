@@ -19,16 +19,26 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function SLIC = computeSLIC( options, shot )
-    
+function SLIC = computeSLIC( options, shot ,rangeIncrements)
+    %%%%%
+if nargin ==2
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 3
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
+
     startFrame = options.ranges( shot );
-    frames = options.ranges( shot + 1 ) - options.ranges( shot );
+    frames = options.ranges( shot + 1 ) - options.ranges( shot );  
 
     totalTimeTaken = 0;
     
     SLIC = cell( frames, 1 );
     
-    for( index = 1: frames )
+    for( index = 1: rangeIncrements: frames )%RAN
 
         tic;
         if( options.vocal )

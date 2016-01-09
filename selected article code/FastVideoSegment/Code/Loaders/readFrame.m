@@ -20,7 +20,9 @@
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
 function frame = readFrame( options, index )
-
+ desiredRangeIncrements=25; % manually set . % RAN
+ index = index * desiredRangeIncrements; % address the multiplicity location of the frame %RAN
+                                         % possible to implement by UniqueFrames only
     if( ~isfield( options, 'stored' ) )
         if( isfield( options, 'infolder' ) && ...
             ~isfield( options, 'videoObject' ) )
@@ -38,8 +40,11 @@ function frame = readFrame( options, index )
         else
             error( 'Frame "%s" cannot be found.', filename );
         end
-    else
-        frame = read( options.videoObject, options.uniqueFrames( index ) );
+    else        
+        %READ Read a video file. 
+        %   READ will be removed in a future release. Use READFRAME instead.
+%         frame = read( options.videoObject, options.uniqueFrames( index ) );
+        frame = read( options.videoObject, ( index ) );
     end
     
     [ height, width, channels ] = size( frame );

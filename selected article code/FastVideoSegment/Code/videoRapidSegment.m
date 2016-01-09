@@ -19,8 +19,18 @@
 %
 %    Contact: a.papazoglou@sms.ed.ac.uk
 
-function segmentation = videoRapidSegment( options, params, data )
-    
+function segmentation = videoRapidSegment( options, params, data ,rangeIncrements )
+     %%%%%
+if nargin ==3
+    rangeIncrements = 1;
+else
+    % Check number of inputs.
+    if nargin > 4
+        error('myfuns:somefun2:TooManyInputs', 'requires at most 3 optional inputs');
+    end
+end
+%%%%%
+
     % Params parsing
     if( ~isfield( params, 'locationWeight' ) || ...
         isempty( params.locationWeight ) )
@@ -75,8 +85,8 @@ function segmentation = videoRapidSegment( options, params, data )
     end
     % End of params parsing
     
-    flow = data.flow;
-    superpixels = data.superpixels;
+    flow        = data.flow        (1:rangeIncrements:end);
+    superpixels = data.superpixels (1:rangeIncrements:end);
     
     % Compute inside-outside maps
     if( options.vocal ), tic; fprintf( 'videoRapidSegment: Computing inside-outside maps...\t' ); end
@@ -84,8 +94,8 @@ function segmentation = videoRapidSegment( options, params, data )
     inRatios = getSuperpixelInRatio( superpixels, data.inMaps );
     if( options.vocal ), toc; end
     
-    imgs = data.imgs;
-    frames = length( flow );
+    imgs    = data.imgs (1:rangeIncrements:end);
+    frames  = length( flow );
     
     % Compute pairwise potentials
     if( options.vocal ), tic; fprintf( 'videoRapidSegment: Computing pairwise potentials...\t' ); end
