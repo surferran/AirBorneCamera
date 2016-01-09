@@ -1,0 +1,1 @@
+C:\Users\Ran_the_User\Documents\Technion_Studies\2016_A_winter\01_STEREO_cam_car_PROJECT\Code\AirborneCamera\Release>AirborneCamera.exe ..\src\externals\bgnd_sub\pic_set\20151212_075744.jpg ..\src\externals\bgnd_sub\pic_set\20151212_075748.jpg ..\src\externals\bgnd_sub\pic_set\20151212_075751.jpg ..\src\externals\bgnd_sub\pic_set\20151212_075753.jpg  --features orb

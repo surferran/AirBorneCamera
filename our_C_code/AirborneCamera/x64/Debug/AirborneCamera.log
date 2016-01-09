@@ -1,0 +1,16 @@
+﻿Build started 2/01/2016 12:22:40.
+     1>Project "C:\Users\Ran_the_User\Documents\GitHub\airborne_camera_git_directory\airborne_camera\code\AirborneCamera\AirborneCamera.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt ..\src\MainFile.cpp
+         MainFile.cpp
+     1>c:\users\ran_the_user\documents\github\airborne_camera_git_directory\airborne_camera\code\src\utilfunctions.h(48): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\ran_the_user\documents\github\airborne_camera_git_directory\airborne_camera\code\src\utilfunctions.h(49): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+     1>c:\users\ran_the_user\documents\github\airborne_camera_git_directory\airborne_camera\code\src\optical_flow_.cpp(283): warning C4715: 'do_example_for_optical_flow': not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ran_the_User\Documents\GitHub\airborne_camera_git_directory\airborne_camera\code\x64\Debug\AirborneCam.exe" /INCREMENTAL /NOLOGO opencv_calib3d300d.lib opencv_core300d.lib opencv_features2d300d.lib opencv_flann300d.lib opencv_hal300d.lib opencv_highgui300d.lib opencv_imgcodecs300d.lib opencv_imgproc300d.lib opencv_ml300d.lib opencv_objdetect300d.lib opencv_photo300d.lib opencv_shape300d.lib opencv_stitching300d.lib opencv_superres300d.lib opencv_ts300d.lib opencv_video300d.lib opencv_videoio300d.lib opencv_videostab300d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Ran_the_User\Documents\GitHub\airborne_camera_git_directory\airborne_camera\code\x64\Debug\AirborneCam.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ran_the_User\Documents\GitHub\airborne_camera_git_directory\airborne_camera\code\x64\Debug\AirborneCam.lib" /MACHINE:X64 x64\Debug\MainFile.obj
+     1>opencv_highgui300d.lib(opencv_highgui300d.dll) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
+     1>Done Building Project "C:\Users\Ran_the_User\Documents\GitHub\airborne_camera_git_directory\airborne_camera\code\AirborneCamera\AirborneCamera.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.54
