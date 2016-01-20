@@ -1,0 +1,2 @@
+options.ranges = [ 1, 35 , 55 , 84 , 110 , 133 , 149 , 210 , 300 ];
+options.positiveRanges = [ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 ];
